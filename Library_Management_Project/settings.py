@@ -152,3 +152,19 @@ EMAIL_HOST_USER = env("EMAIL")
 EMAIL_HOST_PASSWORD =env("EMAIL_PASSWORD")
 
 
+import os
+import sys
+
+def main():
+    """Run administrative tasks."""
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'your_project.settings')
+
+    from django.core.management import execute_from_command_line
+
+    # Get the PORT environment variable for deployment
+    if 'PORT' in os.environ:
+        os.environ['DJANGO_RUNSERVER_PORT'] = os.environ['PORT']
+    execute_from_command_line(sys.argv)
+
+if __name__ == '__main__':
+    main()
