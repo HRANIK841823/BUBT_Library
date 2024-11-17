@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-2wy7)5v477l%q$_wd&@py!&8m7e-8e_$+m4mz+8bvzh=2o=l0@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 ALLOWED_HOSTS = ['localhost', '127.0.0.1','bubt-library.onrender.com']
