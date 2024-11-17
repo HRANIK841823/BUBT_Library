@@ -150,3 +150,11 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = env("EMAIL")
 EMAIL_HOST_PASSWORD =env("EMAIL_PASSWORD")
+import os
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Library_Management_Project.settings')
+
+application = get_wsgi_application()
+
+# Ensure the server binds to the correct host and port
