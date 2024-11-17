@@ -151,10 +151,13 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = env("EMAIL")
 EMAIL_HOST_PASSWORD =env("EMAIL_PASSWORD")
 import os
-from django.core.wsgi import get_wsgi_application
+from django.core.management import execute_from_command_line
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Library_Management_Project.settings')
+if __name__ == "__main__":
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Library_Management_Project.settings')
 
-application = get_wsgi_application()
+    # Get the PORT from the environment variables or default to 8000 for local development
+    port = os.getenv('PORT', '8000')
+    
+    execute_from_command_line(['manage.py', 'runserver', f'0.0.0.0:{port}'])
 
-# Ensure the server binds to the correct host and port
