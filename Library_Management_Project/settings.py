@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ['bubt-library.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','bubt-library.onrender.com']
 CSRF_TRUSTED_ORIGINS = ['https://bubt-library.onrender.com']
 
 # Application definition
@@ -150,14 +150,5 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = env("EMAIL")
 EMAIL_HOST_PASSWORD =env("EMAIL_PASSWORD")
-import os
-from django.core.management import execute_from_command_line
 
-if __name__ == "__main__":
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Library_Management_Project.settings')
-
-    # Get the PORT from the environment variables or default to 8000 for local development
-    port = os.getenv('PORT', '8000')
-    
-    execute_from_command_line(['manage.py', 'runserver', f'0.0.0.0:{port}'])
 
