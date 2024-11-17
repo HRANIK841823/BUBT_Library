@@ -62,10 +62,11 @@ def deposit(request):
 
             # Provide feedback to the user
             messages.success(request, f"Deposit of {amount} was successful! Your new balance is {user_account.balance}.")
+            send_transaction_email(request.user, amount, "Deposite Message", "accounts/deposit_email.html")
             return redirect('profile')  # Or wherever you want to redirect the user
     else:
         form = DepositForm()
-
+        
     return render(request, 'accounts/deposit.html', {'form': form})
 
 #profile

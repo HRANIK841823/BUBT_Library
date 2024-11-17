@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2wy7)5v477l%q$_wd&@py!&8m7e-8e_$+m4mz+8bvzh=2o=l0@'
+# SECRET_KEY = 'django-insecure-2wy7)5v477l%q$_wd&@py!&8m7e-8e_$+m4mz+8bvzh=2o=l0@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -137,3 +137,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+import environ
+env = environ.Env()
+environ.Env.read_env()
+SECRET_KEY = env("SECRET_KEY", default="your-default-secret-key")
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env("EMAIL")
+EMAIL_HOST_PASSWORD =env("EMAIL_PASSWORD")
