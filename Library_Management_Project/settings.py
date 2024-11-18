@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','bubt-library.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bubt-library.onrender.com']
 CSRF_TRUSTED_ORIGINS = ['https://bubt-library.onrender.com']
 
 # Application definition
@@ -123,9 +123,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 STATIC_URL = 'static/'
-# STATICFILES_DIRS=[
-#     BASE_DIR/ 'static',
-# ]
+STATICFILES_DIRS=[
+    BASE_DIR/ 'static',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
