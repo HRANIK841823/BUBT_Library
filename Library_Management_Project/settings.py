@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-2wy7)5v477l%q$_wd&@py!&8m7e-8e_$+m4mz+8bvzh=2o=l0@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bubt-library.onrender.com']
+
 CSRF_TRUSTED_ORIGINS = ['https://bubt-library.onrender.com']
 
 # Application definition
@@ -123,9 +123,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 STATIC_URL = 'static/'
-# STATICFILES_DIRS=[
-#     BASE_DIR/ 'static',
-# ]
+STATICFILES_DIRS=[
+    BASE_DIR/ 'static',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -152,19 +152,3 @@ EMAIL_HOST_USER = env("EMAIL")
 EMAIL_HOST_PASSWORD =env("EMAIL_PASSWORD")
 
 
-import os
-import sys
-
-def main():
-    """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Library_Management_Project.settings')
-
-    from django.core.management import execute_from_command_line
-
-    # Get the PORT environment variable for deployment
-    if 'PORT' in os.environ:
-        os.environ['DJANGO_RUNSERVER_PORT'] = os.environ['PORT']
-    execute_from_command_line(sys.argv)
-
-if __name__ == '__main__':
-    main()
